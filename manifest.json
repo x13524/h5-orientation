@@ -1,0 +1,8 @@
+{
+  "short_name": "h5-orientation",
+  "name": "h5-orientation",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
