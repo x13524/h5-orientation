@@ -1,10 +1,10 @@
 {
   "name": "h5-orientation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "横竖屏检测, 如果移动端处于横屏状态, 出现图片蒙层提示用户使用竖屏浏览页面",
-  "author": "jf3096",
+  "author": "x13524",
   "license": "MIT",
-  "repository": "jf3096/h5-orientation",
+  "repository": "x13524/h5-orientation",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
+    "@types/prop-types": "^15.5.8",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -57,5 +58,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "less": "^3.9.0"
+  }
 }
