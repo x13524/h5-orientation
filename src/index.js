@@ -94,16 +94,18 @@ export default class Orientation extends React.Component {
   render() {
     const {orientationText} = this.state
     const {orientation} = this.props
-    return (
-      <div
-        className={cx(
-          styles.orientationMask,
-          orientationText === orientation ? styles.showMask : ''
-        )}
-      >
-        {this.renderContent()}
-      </div>
-    )
+    if(orientationText === orientation){
+      return (
+        <div
+          className={cx(
+            styles.orientationMask,styles.showMask            
+          )}
+        >
+          {this.renderContent()}
+        </div>
+      )
+    }
+    return null;
   }
 }
 

@@ -97,6 +97,11 @@ class Example extends Component {
 
 ```
 
+## 更新日志
+
+### 1.0.2 20191018
+* 优化代码, 如果初始化为竖屏时, 则不渲染虚拟dom
+
 ## License
 
 MIT © [x13524](https://github.com/x13524)

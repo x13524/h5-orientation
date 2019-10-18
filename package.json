@@ -1,6 +1,6 @@
 {
   "name": "h5-orientation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "横竖屏检测, 如果移动端处于横屏状态, 出现图片蒙层提示用户使用竖屏浏览页面",
   "author": "x13524",
   "license": "MIT",
