@@ -1,30 +1,32 @@
-import * as React from 'react'
-import cx from 'classnames'
-import styles from './index.less'
-import {oneOf, string, func} from 'prop-types'
+import * as React from 'react';
+import cx from 'classnames';
+import styles from './index.less';
+import {oneOf, string, func} from 'prop-types';
 
 export default class Orientation extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      orientationText: null
+      stateDirection: null,
+      width: undefined,
+      height: undefined
     }
   }
 
   componentDidMount() {
-    this.detectOrientationChange()
-    this.onPageResize()
+    this.detectOrientationChange();
+    this.onPageResize();
   }
 
-  detectOrientationChange = () => {
+  detectOrientationChange ()  {
     let optimizedResize = (function () {
-      let callbacks = []
-      let running = false
+      let callbacks = [];
+      let running = false;
 
       // fired on resize event
       function resize() {
         if (!running) {
-          running = true
+          running = true;
           if (window.requestAnimationFrame) {
             window.requestAnimationFrame(runCallbacks)
           } else {
@@ -37,7 +39,7 @@ export default class Orientation extends React.Component {
       function runCallbacks() {
         callbacks.forEach(function (callback) {
           callback()
-        })
+        });
 
         running = false
       }
@@ -58,33 +60,55 @@ export default class Orientation extends React.Component {
           addCallback(callback)
         }
       }
-    })()
+    })();
 
     // start process
     optimizedResize.add(() => {
       this.onPageResize()
     })
-  }
+  };
 
   onPageResize = () => {
-    if (window.orientation === 180 || window.orientation === 0) {
-      // 竖屏浏览
+    const {width, height} = this.state;
+    let _Width = 0,
+      _Height = 0;
+
+    let cw = document.documentElement.clientWidth;
+
+    if (width === undefined && height === undefined) {
+      let sw = window.screen.width;
+      let sh = window.screen.height;
+      // 2.在某些机型（如华为P9）下出现 srceen.width/height 值交换，所以进行大小值比较判断
+      _Width = sw < sh ? sw : sh;
+      _Height = sw >= sh ? sw : sh;
       this.setState({
-        orientationText: 'vertical'
+        width: _Width,
+        height: _Height
+      })
+    } else {
+      _Width = width;
+      _Height = height;
+    }
+
+    if (cw === _Width) {
+      // 竖屏
+      this.setState({
+        stateDirection: 'vertical'
       })
     }
-    if (window.orientation === 90 || window.orientation === -90) {
-      // 横屏浏览
+
+    if (cw === _Height) {
+      // 横屏
       this.setState({
-        orientationText: 'landscape'
+        stateDirection: 'landscape'
       })
     }
-  }
+  };
 
   renderContent() {
-    const {promptImg, renderContent} = this.props
+    const {promptImg, renderContent} = this.props;
     if (renderContent) {
-      return renderContent()
+      return renderContent();
     }
     return (
       <img className={styles.promptImg} src={promptImg}/>
@@ -92,13 +116,13 @@ export default class Orientation extends React.Component {
   }
 
   render() {
-    const {orientationText} = this.state
-    const {orientation} = this.props
-    if(orientationText === orientation){
+    const {stateDirection} = this.state;
+    const {orientation} = this.props;
+    if (stateDirection === orientation) {
       return (
         <div
           className={cx(
-            styles.orientationMask,styles.showMask            
+            styles.orientationMask, styles.showMask
           )}
         >
           {this.renderContent()}
@@ -111,8 +135,8 @@ export default class Orientation extends React.Component {
 
 Orientation.defaultProps = {
   orientation: 'landscape',
-  promptImg: '//s2.ax1x.com/2019/01/10/FOWfu8.png'
-}
+  promptImg: 'https://s2.ax1x.com/2019/01/10/FOWfu8.png'
+};
 
 Orientation.propTypes = {
   /**
@@ -131,4 +155,4 @@ Orientation.propTypes = {
    * 当该值不存在时, 使用默认属性 "promptImg"
    */
   renderContent: func
-}
+};
