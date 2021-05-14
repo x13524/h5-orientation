@@ -55,9 +55,9 @@ import Orientation from 'h5-orientation'
 class Example extends Component {
    render () {
      return (
-       <Orientation 
+       <Orientation
         orientation="vertical"
-        promptImg="//s2.ax1x.com/2019/01/10/FOWfu8.png" 
+        promptImg="//s2.ax1x.com/2019/01/10/FOWfu8.png"
        />
      )
    }
@@ -83,12 +83,12 @@ class Example extends Component {
         </div>
       );
     };
-    
+
    render () {
      return (
-       <Orientation 
+       <Orientation
         orientation = "vertical"
-        promptImg = "//s2.ax1x.com/2019/01/10/FOWfu8.png" 
+        promptImg = "//s2.ax1x.com/2019/01/10/FOWfu8.png"
         renderContent = {this.renderContent}
        />
      )
@@ -98,6 +98,9 @@ class Example extends Component {
 ```
 
 ## 更新日志
+### 1.0.4 20210511
+* 优化判断横竖屏判断, 将原本的 screen.width 宽高判断调整为 innerWidth 和 innerHeight
+* 新增参数: display: ['block','none','auto'] 用于特殊场景下强制展示或者隐藏本插件内容, 不传则默认 'auto'
 
 ### 1.0.3 20200110
 * 优化代码, 使用新的判断方法, 用来判断横竖屏状态
