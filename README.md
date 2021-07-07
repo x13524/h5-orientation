@@ -98,6 +98,9 @@ class Example extends Component {
 ```
 
 ## 更新日志
+### 1.0.5 20210707
+* feat: 为了解决部分特殊浏览器(vivo x9与华为p9)在软键盘被唤醒时的横竖屏的问题; 优先使用orientationchange 事件进行判断, 如浏览器不支持该事件再使用 onResize 事件使用宽高判断, 尽量减少误判
+
 ### 1.0.4 20210511
 * 优化判断横竖屏判断, 将原本的 screen.width 宽高判断调整为 innerWidth 和 innerHeight
 
