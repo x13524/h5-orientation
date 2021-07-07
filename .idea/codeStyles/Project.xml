@@ -4,14 +4,14 @@
     <HTMLCodeStyleSettings>
       <option name="HTML_ATTRIBUTE_WRAP" value="0" />
     </HTMLCodeStyleSettings>
-    <JSCodeStyleSettings>
+    <JSCodeStyleSettings version="0">
       <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
       <option name="SPACE_BEFORE_GENERATOR_MULT" value="true" />
       <option name="USE_DOUBLE_QUOTES" value="false" />
       <option name="FORCE_QUOTE_STYlE" value="true" />
     </JSCodeStyleSettings>
-    <TypeScriptCodeStyleSettings>
+    <TypeScriptCodeStyleSettings version="0">
       <option name="USE_PUBLIC_MODIFIER" value="true" />
       <option name="USE_DOUBLE_QUOTES" value="false" />
       <option name="OBJECT_LITERAL_WRAP" value="0" />
